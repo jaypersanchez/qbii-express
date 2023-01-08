@@ -10,6 +10,7 @@ const Private_Key  =  process.env.PRIVATE_KEY;
 const from_address  =  process.env.FROM_ADDRESS;
 const to_address  =  process.env.TO_ADDRESS;
 const ethAmount = process.env.ETH_AMOUNT;
+const gas = process.env.GAS
 
 
 /* GET users listing. */
@@ -29,8 +30,8 @@ const payForWattage = async() => {
   const nonce = await web3.eth.getTransactionCount(from_address, 'latest');
   const transaction = {
     'to': to_address, // faucet address to return eth
-    'value': 1000000000000000000, // 1 ETH
-    'gas': 30000,
+    'value': ethAmount,
+    'gas': gas,
     'nonce': nonce,
     'data': ""
    };
